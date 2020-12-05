@@ -1,3 +1,5 @@
+# Module to process a bunch of images of license plates to read info and search for data in RDW database
+# RDW database is on a local disk
 import cv2
 import pytesseract
 from pytesseract import Output
@@ -18,9 +20,7 @@ for file in files:
 
 
     text=pytesseract.image_to_string(img, lang ='eng', config ='--oem 3 --psm 13 load_system_dawg=false load_freq_dawg=false -c tessedit_char_whitelist=-ABCDEFGHIJKLMNOPRSTUVXYZ0123456789')
-    #print (text)
-    #text_data=pytesseract.image_to_data(img, config ='--oem 3 --psm 13 load_system_dawg=false load_freq_dawg=false -c tessedit_char_whitelist=-ABCDEFGHIJKLMNOPRSTUVXYZ0123456789', output_type=Output.DICT)
-    #print(text_data['conf'], text_data['text'])
+
     count+=1
     text=text.replace('-','')[:6]
 
@@ -39,4 +39,5 @@ for file in files:
 
 print("Total:", count)
 print("Found:", luck)
+print(f"Success rate is: {luck/count*100}%")
 found_data.to_csv('found.csv')
