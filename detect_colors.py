@@ -1,10 +1,11 @@
 import cv2
 import numpy as np
-
+############################################
+# This code opens sample image and a panel with trackbars to find the best HSV mask.  
 ############################################
 
 img=cv2.imread('car.png')
-h_off=50
+h_off=50 #Define offset for every parameter for bracketing
 s_off=70
 v_off=50
 
@@ -36,4 +37,4 @@ while True:
     
 
 
-    cv2.waitKey(1)
+    #cv2.waitKey(1)
