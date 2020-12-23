@@ -4,4 +4,8 @@ Here I am trying to process online video from youtube using OpenCV in order to g
 
 <img src="car.png">
 
+
+Collected a bunch of license plate images, splited them into characters, labeled and built neural network to recognize them.
+Example :
+
 <img src='Screenshot%20from%202020-12-23%2016-10-46.png'>
